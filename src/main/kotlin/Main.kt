@@ -17,8 +17,8 @@ suspend fun main() {
         println("4. Remove Passenger")
         println("5. Book Flight for Passenger")
         println("6. Search Flights")
-        println("7.Cancel flight")
-        println("8.TotalTravelTime")
+        println("7. Cancel flight")
+        println("8. TotalTravelTime")
         println("9. Print Passenger Details")
         println("10. Print All Passengers")
         println("11. Print Flight Details")
@@ -32,15 +32,15 @@ suspend fun main() {
             1 -> {
                 println("\nAdd Flight")
                 print("Flight Number: ")
-                val flightNumber = readLine() ?: ""
+                val flightNumber = readln()
                 print("Source Airport: ")
-                val sourceAirport = readLine() ?: ""
+                val sourceAirport =readln()
                 print("Destination Airport: ")
-                val destinationAirport = readLine() ?: ""
+                val destinationAirport =readln()
                 print("Departure Date and Time (yyyy-MM-dd HH:mm): ")
-                val departureDateTime = LocalDateTime.parse(readLine() ?: "")
+                val departureDateTime = LocalDateTime.parse(readln())
                 print("Arrival Date and Time (yyyy-MM-dd HH:mm): ")
-                val arrivalDateTime = LocalDateTime.parse(readLine() ?: "")
+                val arrivalDateTime = LocalDateTime.parse(readln())
                 val flight = Flight(flightNumber, sourceAirport, destinationAirport, departureDateTime, arrivalDateTime)
                 bookingSystem.addFlight(flight)
                 println("Flight added successfully.")
@@ -48,9 +48,9 @@ suspend fun main() {
             2 -> {
                 println("\nAdd Passenger")
                 print("Passenger ID: ")
-                val passengerId = readLine() ?: ""
+                val passengerId = readln()
                 print("Passenger Name: ")
-                val passengerName = readLine() ?: ""
+                val passengerName =readln()
                 val passenger = Passenger(passengerId, passengerName)
                 bookingSystem.addPassenger(passenger)
                 println("Passenger added successfully.")
@@ -58,34 +58,34 @@ suspend fun main() {
             3 -> {
                 println("\nRemove Flight")
                 print("Enter flight number: ")
-                val flightNumber = readLine() ?: ""
+                val flightNumber = readln()
                 bookingSystem.removeFlight(flightNumber)
                 println("Flight removed successfully.")
             }
             4 -> {
                 println("\nRemove Passenger")
                 print("Enter passenger ID: ")
-                val passengerId = readLine() ?: ""
+                val passengerId = readln()
                 bookingSystem.removePassengerById(passengerId)
                 println("Passenger removed successfully.")
             }
             5 -> {
                 println("\nBook Flight for Passenger")
                 print("Enter passenger ID: ")
-                val passengerId = readLine() ?: ""
+                val passengerId = readln()
                 print("Enter flight number: ")
-                val flightNumber = readLine() ?: ""
+                val flightNumber = readln()
                 bookingSystem.processBookings(listOf(Pair(passengerId, flightNumber)))
                 println("Booking processed successfully.")
             }
             6 -> {
                 println("\nSearch Flights")
                 print("Enter source airport: ")
-                val sourceAirport = readLine() ?: ""
+                val sourceAirport = readln()
                 print("Enter destination airport: ")
-                val destinationAirport = readLine() ?: ""
+                val destinationAirport = readln()
                 print("Enter departure date and time (yyyy-MM-dd HH:mm): ")
-                val departureDateTime = LocalDateTime.parse(readLine() ?: "")
+                val departureDateTime = LocalDateTime.parse(readln())
                 val searchResults = bookingSystem.searchFlights(sourceAirport, destinationAirport, departureDateTime)
                 if (searchResults.isEmpty()) {
                     println("No flights found for the given criteria.")
@@ -135,7 +135,7 @@ suspend fun main() {
             9 -> {
                 println("\nPrint Passenger Details")
                 print("Enter passenger ID: ")
-                val passengerId = readLine() ?: ""
+                val passengerId = readln()
                 bookingSystem.printPassengerDetails(passengerId)
             }
             10 -> {
@@ -145,7 +145,7 @@ suspend fun main() {
             11 -> {
                 println("\nPrint Flight Details")
                 print("Enter flight number: ")
-                val flightNumber = readLine() ?: ""
+                val flightNumber = readln()
                 bookingSystem.printFlightDetails(flightNumber)
             }
             12 -> {
